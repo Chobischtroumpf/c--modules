@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.h                                          :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alessandro <alessandro@student.42.fr>      +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 20:23:39 by alessandro        #+#    #+#             */
-/*   Updated: 2019/12/24 17:03:24 by alessandro       ###   ########.fr       */
+/*   Updated: 2020/01/06 16:37:29 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ class Contact
 };
 
 #endif
-/* first name ,last name ,nickname ,login ,postal address ,email address ,phone number ,birthday date ,favorite meal ,underwear color et darkest secret */

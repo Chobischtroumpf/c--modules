@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   class_funct.cpp                                    :+:      :+:    :+:   */
+/*   ClassContact.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alessandro <alessandro@student.42.fr>      +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:03:30 by alessandro        #+#    #+#             */
-/*   Updated: 2019/12/24 19:46:08 by alessandro       ###   ########.fr       */
+/*   Updated: 2020/01/06 16:50:52 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "annuaire.h"
+#include "contact.hpp"
 
 Contact::Contact(void){}
 
@@ -33,3 +33,4 @@ void Contact::set_values(std::string first_name_input, std::string last_name_inp
 	underwear_color = underwear_color_input;
 	darkest_secret = darkest_secret_input;
 }
+
