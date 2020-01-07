@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 08:54:46 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/06 17:32:26 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/07 08:30:30 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int main(void)
 		}
 		else if (str.compare("SEARCH") == 0)
 		{
-			return (0);
+			return(ft_search(annuaire);)
 		}
 	}
 }

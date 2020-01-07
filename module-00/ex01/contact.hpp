@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 20:23:39 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/06 16:37:29 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/07 12:13:54 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Contact
 		std::string underwear_color;
 		std::string darkest_secret;
 
+
 	public:
 		Contact();
 		void set_values(std::string first_name,
@@ -45,6 +46,29 @@ class Contact
 						std::string favorite_meal,
 						std::string underwear_color,
 						std::string darkest_secret);
+							
+	std::string getFirst_name();
+
+	std::string getLast_name();
+
+	std::string getNickname();
+
+	std::string getLogin();
+
+	std::string getPostal_address();
+
+	std::string getEmail_address();
+
+	std::string getPhone_number();
+
+	std::string getBirthday_date();
+
+	std::string getFavorite_meal();
+
+	std::string getUnderwear_color();
+
+	std::string getDarkest_secret();
+
 };
 
 #endif

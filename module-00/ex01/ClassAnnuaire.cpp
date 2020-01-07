@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 16:49:58 by adorigo           #+#    #+#             */
-/*   Updated: 2020/01/06 17:19:34 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:26:48 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,11 @@ void Annuaire::ft_add_contact(Contact contact)
 		i++;
 	}
 	else
-		std::cout << "Sorry, you tried to create to many contacts";
+		std::cout << "Sorry, you tried to create too many contacts";
 }
+
+Contact Annuaire::getContacts_array(int j)
+{
+	contacts_array[j].getFirst_name;
+}
+

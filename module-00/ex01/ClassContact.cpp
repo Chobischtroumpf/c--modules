@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:03:30 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/06 16:50:52 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/07 12:13:39 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,57 @@ void Contact::set_values(std::string first_name_input, std::string last_name_inp
 	darkest_secret = darkest_secret_input;
 }
 
+std::string Contact::getFirst_name()
+{
+	return first_name;
+}
+
+std::string Contact::getLast_name()
+{
+	return last_name;
+}
+
+std::string Contact::getNickname()
+{
+	return (nickname);
+}
+
+std::string Contact::getLogin()
+{
+	return (login);
+}
+
+std::string Contact::getPostal_address()
+{
+	return (postal_address);
+}
+
+std::string Contact::getEmail_address()
+{
+	return (email_address);
+}
+
+std::string Contact::getPhone_number()
+{
+	return (phone_number);
+}
+
+std::string Contact::getBirthday_date()
+{
+	return(birthday_date);
+}
+
+std::string Contact::getFavorite_meal()
+{
+	return (favorite_meal);
+}
+
+std::string Contact::getUnderwear_color()
+{
+	return (underwear_color);
+}
+
+std::string Contact::getDarkest_secret()
+{
+	return (darkest_secret);
+}
