@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:03:30 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/07 12:13:39 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/08 15:47:34 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,3 +88,58 @@ std::string Contact::getDarkest_secret()
 {
 	return (darkest_secret);
 }
+
+		void Contact::setFirst_name(std::string first_name_input_input)
+		{
+			first_name = first_name_input_input;
+		}
+
+		void Contact::setLast_name(std::string last_name_input)
+		{
+			last_name = last_name_input;
+		}
+
+		void Contact::setNickname(std::string nickname_input)
+		{
+			nickname = nickname_input;
+		}
+
+		void Contact::setLogin(std::string login_input)
+		{
+			login = login_input;
+		}
+
+		void Contact::setPostal_address(std::string postal_address_input)
+		{
+			postal_address = postal_address_input;
+		}
+
+		void Contact::setEmail_address(std::string email_address_input)
+		{
+			email_address = email_address_input;
+		}
+
+		void Contact::setPhone_number(std::string phone_number_input)
+		{
+			phone_number = phone_number_input;
+		}
+
+		void Contact::setBirthday_date(std::string birthday_date_input)
+		{
+			birthday_date = birthday_date_input;
+		}
+
+		void Contact::setFavorite_meal(std::string favorite_meal_input)
+		{
+			favorite_meal = favorite_meal_input;
+		}
+
+		void Contact::setUnderwear_color(std::string underwear_color_input)
+		{
+			underwear_color = underwear_color_input;
+		}
+
+		void Contact::setDarkest_secret(std::string darkest_secret_input)
+		{
+			darkest_secret = darkest_secret_input;
+		}

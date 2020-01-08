@@ -6,14 +6,14 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 19:06:40 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/07 11:31:36 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/08 14:49:45 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANNUAIRE_H
-#define ANNUAIRE_H
+# define ANNUAIRE_H
 
-#include "contact.hpp"
+# include "contact.hpp"
 
 class Annuaire
 {
@@ -27,5 +27,8 @@ public:
 	std::string	ft_get_name(std::string line);
 	Contact getContacts_array(int i);
 };
+
+int	ft_search(Annuaire annuaire);
+std::string	parse_contacts(std::string str, int i);
 
 #endif

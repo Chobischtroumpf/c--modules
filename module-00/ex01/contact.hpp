@@ -6,17 +6,16 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 20:23:39 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/07 12:13:54 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/08 15:49:43 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
-#define CONTACT_H
-#include <cctype>
-#include <iostream>
-#include <array>
-#include <string.h>
-
+# define CONTACT_H
+# include <cctype>
+# include <iostream>
+# include <array>
+# include <string.h>
 class Contact
 {
 	private:
@@ -31,7 +30,6 @@ class Contact
 		std::string favorite_meal;
 		std::string underwear_color;
 		std::string darkest_secret;
-
 
 	public:
 		Contact();
@@ -69,6 +67,27 @@ class Contact
 
 	std::string getDarkest_secret();
 
+	void setFirst_name(std::string first_name);
+
+	void setLast_name(std::string last_name);
+
+	void setNickname(std::string nickname);
+
+	void setLogin(std::string login);
+
+	void setPostal_address(std::string postal_address);
+
+	void setEmail_address(std::string email_address);
+
+	void setPhone_number(std::string phone_number);
+
+	void setBirthday_date(std::string birthday_date);
+
+	void setFavorite_meal(std::string favorite_meal);
+
+	void setUnderwear_color(std::string underwear_color);
+
+	void setDarkest_secret(std::string darkest_secret);
 };
 
 #endif
