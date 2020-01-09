@@ -6,12 +6,12 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 08:26:01 by adorigo           #+#    #+#             */
-/*   Updated: 2020/01/09 15:56:12 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/09 16:31:08 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "annuaire.hpp"
-#include "contact.hpp"
+#include "../include/annuaire.hpp"
+#include "../include/contact.hpp"
 
 static std::string	adding_spaces(int length, std::string str)
 {

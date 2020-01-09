@@ -6,11 +6,11 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:03:30 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/08 15:47:34 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/09 16:31:15 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "../include/contact.hpp"
 
 Contact::Contact(void){}
 

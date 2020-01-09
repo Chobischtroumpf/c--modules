@@ -6,12 +6,12 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 08:54:46 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/09 16:09:47 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/09 16:30:54 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "annuaire.hpp"
-#include "contact.hpp"
+#include "../include/annuaire.hpp"
+#include "../include/contact.hpp"
 
 static void		ft_showing_contact(Annuaire annuaire)
 {

@@ -6,17 +6,16 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 20:23:39 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/09 15:21:12 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/09 16:27:04 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
-// # include <cctype>
 # include <iostream>
 # include <array>
 # include <string>
-// # include <stdlib.h>
+
 class Contact
 {
 	private:
