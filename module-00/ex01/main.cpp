@@ -6,14 +6,32 @@
 /*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 08:54:46 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/08 16:13:29 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/01/09 16:09:47 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "annuaire.hpp"
 #include "contact.hpp"
 
-Contact ft_create_contact()
+static void		ft_showing_contact(Annuaire annuaire)
+{
+	Contact contact;
+	std::string i;
+
+	std::cout << "\n select contact please (by index) : \n--> ";
+	std::cin >> i;
+	contact = annuaire.getContacts_array(std::stoi(i));
+	std::cout	<< "First name :		" << contact.getFirst_name() << std::endl << "Last name :		" 
+				<< contact.getLast_name() << std::endl << "Nickname :		" << contact.getNickname() 
+				<< std::endl << "Login :			" << contact.getLogin() << std::endl << "Postal code :		" 
+				<< contact.getPostal_address() << std::endl << "Email address :		" << contact.getEmail_address() 
+				<< std::endl << "Phone number :		" << contact.getPhone_number() << std::endl
+				<< "Birthday date :		" << contact.getBirthday_date() << std::endl << "Favorite meal:		" 
+				<< contact.getFavorite_meal() << std::endl << "Underwear color :	" << contact.getUnderwear_color()
+				<< std::endl << "Darkest secret :	" << contact.getDarkest_secret() << std::endl;
+}
+
+static Contact ft_create_contact()
 {
 	Contact contact;
 	std::string first_name;
@@ -48,7 +66,7 @@ Contact ft_create_contact()
 	std::cin >> favorite_meal;
 	std::cout << "quel est la couleur des sous-vetements de votre contact ?\n-->  ";
 	std::cin >> underwear_color;
-	std::cout << "quel est le secret le plus obscur de votre contact ?\n-->  ";
+	std::cout << "quel est le secret le plus obscur de votre contact (en un mot) ?\n-->  ";
 	std::cin >> darkest_secret;
 
 	contact.set_values(first_name, last_name, nickname, login, postal_address,
@@ -75,8 +93,8 @@ int main(void)
 		}
 		else if (str.compare("SEARCH") == 0)
 		{
-			std::cout << "after SEARCH\n";
 			ft_search(annuaire);
+			ft_showing_contact(annuaire);
 		}
 	}
 }
