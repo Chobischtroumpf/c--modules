@@ -3,32 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   annuaire.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 19:06:40 by alessandro        #+#    #+#             */
-/*   Updated: 2020/01/09 16:27:06 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/03/23 10:09:24 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANNUAIRE_H
 # define ANNUAIRE_H
 
+# include <iostream>
+# include <iomanip>
+# include <string>
 # include "contact.hpp"
 
 class Annuaire
 {
-	private:
-		std::array<Contact, 8> contacts_array;
-		int incrementer;
+private:
+	Contact	contacts[8];
+	int		amount;
+public:
+	Annuaire();
+	virtual ~Annuaire();
 
-	public:
-		Annuaire();
-		void 		ft_add_contact(Contact contact);
-		std::string	ft_get_name(std::string line);
-		Contact getContacts_array(int i);
+	void	show_startup(void);
+	void	add_contact(void);
+	void	search_contact(void);
+	void	show_search_header(void);
 };
-
-int	ft_search(Annuaire annuaire);
-std::string	parse_contacts(std::string str, int i);
 
 #endif
