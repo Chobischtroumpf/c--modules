@@ -6,11 +6,12 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 15:03:58 by adorigo           #+#    #+#             */
-/*   Updated: 2020/03/24 16:17:23 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/03/24 16:22:30 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
 
 Zombie::Zombie()
 {

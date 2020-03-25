@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/23 15:03:58 by adorigo           #+#    #+#             */
-/*   Updated: 2020/03/24 16:17:23 by adorigo          ###   ########.fr       */
+/*   Created: 2020/03/23 15:04:07 by adorigo           #+#    #+#             */
+/*   Updated: 2020/03/24 16:17:43 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+# include <iostream>
+# include <string>
 
-Zombie::Zombie()
+class Zombie
 {
-}
+private:
+	std::string		type;
+	std::string		name;
+public:
 
-Zombie::Zombie(std::string name, std::string type)
-{
-	this->name = name;
-	this->type = type;
-}
+	Zombie();
+	Zombie(std::string name, std::string type);
+	~Zombie();
 
-Zombie::~Zombie()
-{
-}
+	void announce(void);
+};
 
-void	Zombie::announce(void)
-{
-	std::cout <<  "< " << this->name;
-	std::cout << " (" << this->type << ")";
-	std::cout << " > Braiiiiiiiiiinnnnnnnnnssss..." << std::endl;
-}
+#endif

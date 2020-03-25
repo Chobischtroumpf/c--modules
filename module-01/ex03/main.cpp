@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/23 15:03:58 by adorigo           #+#    #+#             */
-/*   Updated: 2020/03/24 16:17:23 by adorigo          ###   ########.fr       */
+/*   Created: 2020/03/24 16:06:43 by adorigo           #+#    #+#             */
+/*   Updated: 2020/03/25 11:16:24 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ZombieHorde.hpp"
 
-Zombie::Zombie()
+int main(void)
 {
-}
-
-Zombie::Zombie(std::string name, std::string type)
-{
-	this->name = name;
-	this->type = type;
-}
-
-Zombie::~Zombie()
-{
-}
-
-void	Zombie::announce(void)
-{
-	std::cout <<  "< " << this->name;
-	std::cout << " (" << this->type << ")";
-	std::cout << " > Braiiiiiiiiiinnnnnnnnnssss..." << std::endl;
+    ZombieHorde zombieHorde = ZombieHorde(100);
+    zombieHorde.announce();
+    return (0);
 }
