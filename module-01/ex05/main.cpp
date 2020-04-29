@@ -6,12 +6,12 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 11:24:37 by adorigo           #+#    #+#             */
-/*   Updated: 2020/04/23 14:33:53 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/04/27 11:28:44 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "human.cpp"
+#include "Human.hpp"
 
 int main(void)
 {

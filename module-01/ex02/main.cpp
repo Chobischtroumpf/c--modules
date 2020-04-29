@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 15:03:54 by adorigo           #+#    #+#             */
-/*   Updated: 2020/03/24 15:07:26 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/04/28 11:54:10 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int main(void)
     zebra.announce();
 
     ZombieEvent Zevent = ZombieEvent();
-    Zevent.setZombieType("Alien");
+    // Zevent.setZombieType("Alien");
 
     Zombie *xenomorph = Zevent.newZombie("XX121");
     xenomorph->announce();
     delete xenomorph;
 
-    Zevent.setZombieType("Pokemon");
+    // Zevent.setZombieType("Pokemon");
     Zevent.randomChump();
     Zevent.randomChump();
     Zevent.randomChump();

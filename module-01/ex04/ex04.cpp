@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 11:19:06 by adorigo           #+#    #+#             */
-/*   Updated: 2020/03/25 11:22:07 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/04/29 12:26:25 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void)
 {
     std::string str = "HI THIS IS BRAIN";
     std::string *ptr = &str;
-    std::string &ref = str;
+    std::string& ref = str;
 
     std::cout << "-> Pointer" << std::endl;
     std::cout << *ptr << std::endl;
