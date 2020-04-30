@@ -3,29 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alessandro <alessandro@student.42.fr>      +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 10:39:14 by alessandro        #+#    #+#             */
-/*   Updated: 2019/12/22 11:45:42 by alessandro       ###   ########.fr       */
+/*   Updated: 2020/04/27 11:10:26 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cctype>
-#include <cstring>
 #include <iostream>
-#include <cstdio>
 
 int main(int argc, char** argv)
 {
 	int j = 1;
 	int k = 0;
-	char *str;
+	std::string str;
 
 	if (argc == 1)
-	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-		return (0);
-	}
 	else
 	{
 		while(argv[j] != NULL)
@@ -42,4 +36,5 @@ int main(int argc, char** argv)
 		}
 		std::cout << "\n";
 	}
+	return (0);
 }
