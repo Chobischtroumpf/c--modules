@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   ClassContact.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:03:30 by alessandro        #+#    #+#             */
-/*   Updated: 2020/03/23 10:07:30 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/04/27 10:20:38 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/contact.hpp"
+#include "../include/ClassContact.hpp"
 
 std::string Contact::fields_name[11] = {
 	"First Name",

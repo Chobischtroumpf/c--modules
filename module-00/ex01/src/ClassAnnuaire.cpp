@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Annuaire.cpp                                       :+:      :+:    :+:   */
+/*   ClassAnnuaire.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 16:49:58 by adorigo           #+#    #+#             */
-/*   Updated: 2020/03/23 10:08:17 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/04/27 10:19:55 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/annuaire.hpp"
+#include "../include/ClassAnnuaire.hpp"
 
 Annuaire::Annuaire()
 {
