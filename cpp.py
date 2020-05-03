@@ -8,7 +8,7 @@ import sys
 import datetime
 
 
-OWNER = "agossuin"
+OWNER = "adorigo"
 SCHOOL = "s19.be"
 
 
