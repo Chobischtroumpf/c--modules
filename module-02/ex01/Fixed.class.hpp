@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 17:09:54 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/03 12:47:10 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/03 15:56:37 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ public:
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
+	float	toFloat(void) const;
+	int toInt(void) const;
+
 };
+
+std::ostream &operator<<(std::ostream &out, Fixed const &value);
 
 #endif

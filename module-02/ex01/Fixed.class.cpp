@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 17:09:54 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/03 12:47:22 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/03 17:39:10 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,15 @@ void Fixed::setRawBits(int const raw)
 	this->value = raw;
 }
 
+float Fixed::toFloat(void) const
+{
+	return ((float)this->value / (float)(1 << this->bits));
+}
+
+int Fixed::toInt(void) const
+{
+	return (this->value >> Fixed::bits);
+}
 
 
 std::ostream &operator<<(std::ostream &out, Fixed const &value)
