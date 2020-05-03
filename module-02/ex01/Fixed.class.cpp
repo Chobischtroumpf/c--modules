@@ -6,11 +6,11 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 17:09:54 by adorigo           #+#    #+#             */
-/*   Updated: 2020/04/30 17:57:58 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/03 12:47:22 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Fixed.class.hpp"
 
 Fixed::Fixed()
 {
