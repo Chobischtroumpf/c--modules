@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 17:51:07 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 01:39:20 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 11:19:44 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Victim::Victim(std::string const &name):
 	name(name)
 {
-	std::cout << "Some random victim called " << this->name << " just popped" << std::endl;
+	std::cout << "Some random victim called " << this->name << " just popped"  << std::endl;
 }
 
 Victim::Victim(Victim const &other):
 	name(other.name)
 {
-	std::cout << "Some random victim called " << this->name << " just popped" << std::endl;
+	std::cout << "Some random victim called " << this->name << " just popped"  << std::endl;
 }
 
 Victim::~Victim()

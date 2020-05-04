@@ -2,8 +2,13 @@
 # ================================ VARIABLES ================================= #
 
 NAME	= exec
+
 CXX	= g++
 CFLAGS	= -Wall -Werror -Wextra
+
+ifeq ($(DEBUG),1)
+CFLAGS	+= -g3 -fsanitize=address
+endif
 
 SRCDIR	= ./
 INCDIR	= include/
@@ -11,13 +16,10 @@ OBJDIR	= objs/
 
 CXXFLAGS	+= -I $(INCDIR)
 
-SRCS	= 		FragTrap.cpp \
-		ScavTrap.cpp \
-		ClapTrap.cpp \
-		main.cpp
-
-SRC		:= $(notdir $(SRCS)) # 					Files only
-OBJ		:= $(SRC:.cpp=.o)	#					Files only
+SRC	:= $(SRCDIR)Aweapon.cpp $(SRCDIR)Character.cpp $(SRCDIR)Enemy.cpp	\
+		$(SRCDIR)PlasmaRifle.cpp $(SRCDIR)PowerFist.cpp $(SRCDIR)RadScorpion.cpp\
+		$(SRCDIR)SuperMutant.cpp
+OBJ	:= $(SRC:.cpp=.o)	#				Files only
 OBJS	:= $(addprefix $(OBJDIR), $(OBJ)) #		Full path
 CSRCS	:= $(addprefix ../, $(SRCS)) #			Compiler
 

@@ -16,8 +16,7 @@ OBJDIR	= objs/
 
 CXXFLAGS	+= -I $(INCDIR)
 
-SRCS	:= $(wildcard $(SRCDIR)*.cpp) #			Full path
-SRC	:= $(notdir $(SRCS)) # 				Files only
+SRC	:= $(SRCDIR)Peon.cpp $(SRCDIR)Sorcerer.cpp $(SRCDIR)Victim.cpp
 OBJ	:= $(SRC:.cpp=.o)	#				Files only
 OBJS	:= $(addprefix $(OBJDIR), $(OBJ)) #		Full path
 CSRCS	:= $(addprefix ../, $(SRCS)) #			Compiler

@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 17:51:07 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 11:13:28 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 11:23:38 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ Peon::Peon(std::string const&name):
 	std::cout << "Zog zog." << std::endl;
 }
 
-Peon::~Peon()
+Peon::Peon(Peon const &other):
+	Victim(other.name)
 {
 	std::cout << "Zog Zog" <<std::endl;
 }

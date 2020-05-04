@@ -2,13 +2,8 @@
 # ================================ VARIABLES ================================= #
 
 NAME	= exec
-
 CXX	= g++
 CFLAGS	= -Wall -Werror -Wextra
-
-ifeq ($(DEBUG),1)
-CFLAGS	+= -g3 -fsanitize=address
-endif
 
 SRCDIR	= ./
 INCDIR	= include/
@@ -16,9 +11,11 @@ OBJDIR	= objs/
 
 CXXFLAGS	+= -I $(INCDIR)
 
-SRCS	:= $(wildcard $(SRCDIR)*.cpp) #			Full path
-SRC	:= $(notdir $(SRCS)) # 				Files only
-OBJ	:= $(SRC:.cpp=.o)	#				Files only
+SRCS	= 		Fixed.class.cpp \
+		main.cpp
+
+SRC		:= $(notdir $(SRCS)) # 					Files only
+OBJ		:= $(SRC:.cpp=.o)	#					Files only
 OBJS	:= $(addprefix $(OBJDIR), $(OBJ)) #		Full path
 CSRCS	:= $(addprefix ../, $(SRCS)) #			Compiler
 

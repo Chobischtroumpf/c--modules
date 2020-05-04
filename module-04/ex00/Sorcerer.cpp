@@ -6,28 +6,28 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 17:51:07 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 10:50:04 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 13:08:21 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
 
-Sorcerer::Sorcerer(std::string name, std::string title):
+Sorcerer::Sorcerer(std::string const &name, std::string const &title):
 	name(name), title(title)
 {
-	std::cout << this->name << "," << this->title << ", is born!" << std::endl;
+	std::cout << this->name << ", " << this->title << ", is born !" << std::endl;
 }
 
-Sorcerer::Sorcerer(Sorcerer const&other):
-	name(name), title(title)
+Sorcerer::Sorcerer(Sorcerer const &other):
+	name(other.name), title(other.title)
 {
-	std::cout << this->name << "," << this->title << ", is born!" << std::endl;
+	std::cout << this->name << ", " << this->title << ", is born !" << std::endl;
 }
 
 Sorcerer::~Sorcerer()
 {
 	std::cout << this->name << ", " << this->title
-			  << "is Dead. Consequences will never be he same !" << std::endl;
+			  << ", is dead. Consequences will never be the same !" << std::endl;
 }
 
 Sorcerer &Sorcerer::operator=(Sorcerer const &other)
@@ -37,12 +37,12 @@ Sorcerer &Sorcerer::operator=(Sorcerer const &other)
 	return (*this);
 }
 
-std::string const &Sorcerer::getName() const
+std::string const &Sorcerer::getName(void) const
 {
 	return (this->name);
 }
 
-std::string const &Sorcerer::getTitle() const
+std::string const &Sorcerer::getTitle(void) const
 {
 	return (this->title);
 }
@@ -54,7 +54,6 @@ void Sorcerer::polymorph(Victim const &victim) const
 
 std::ostream &operator<<(std::ostream &out, Sorcerer const &sorcerer)
 {
-	out << "I am " << sorcerer.getName() << ", "
-		<< sorcerer.getTitle() << ", and I like ponies !" << std::endl;
+	out << sorcerer.getName();
 	return (out);
 }
