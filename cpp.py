@@ -40,10 +40,10 @@ def header(name):
 /*{" ":56}:::      ::::::::   */
 /*   {name:50} :+:      :+:    :+:   */
 /*{" ":52}+:+ +:+         +:+     */
-/*   By: {OWNER} <{OWNER}@student.{SCHOOL}>         +{"#"}+  +:+       +{"#"}+        */
+/*   By: {OWNER} <{OWNER}@student.{SCHOOL}>           +{"#"}+  +:+       +{"#"}+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: {date} by {OWNER}          #+#    #+#             */
-/*   Updated: {date} by {OWNER}         ###   ########.fr       */
+/*   Created: {date} by {OWNER}           #+#    #+#             */
+/*   Updated: {date} by {OWNER}          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ class {name}
 		std::string		name;
 
 	public:
-		{name} ();
-		~{name} ();
+		{name}();
+		virtual ~{name}();
 
 		std::string		getName();
 		void			setName(std::string name);
@@ -87,12 +87,12 @@ def cpp_template(name):
 
 {name}::{name}()
 {'{'}
-	std::cout << "-{str(name)} was created" << '\\n';
+	std::cout << "-{str(name)} was created" << std::endl;
 {'}'}
 
 {name}::~{name}()
 {'{'}
-	std::cout << "-{str(name)} is being deleted" << '\\n';
+	std::cout << "-{str(name)} is being deleted" << std::endl;
 {'}'}
 
 void		{name}::setName(std::string name) //generic function

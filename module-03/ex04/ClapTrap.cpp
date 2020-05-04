@@ -6,14 +6,13 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 10:52:16 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/03 15:53:06 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 00:56:23 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string const &name):
-	name(name)
+ClapTrap::ClapTrap(std::string const &name) : name(name)
 {
 	std::cout << "ClapTrap " << name << " created." << std::endl;
 	this->level = 1;
@@ -26,12 +25,11 @@ ClapTrap::ClapTrap(std::string const &name):
 	this->armorDamageReduction = 100;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &other):
-	name(other.name)
-	{
-		std::cout << "ClapTrap " << name << " created." << std::endl;
-		ClapTrap::copy(other);
-	}
+ClapTrap::ClapTrap(ClapTrap const &other) : name(other.name)
+{
+	std::cout << "ClapTrap " << name << " created." << std::endl;
+	ClapTrap::copy(other);
+}
 
 ClapTrap::~ClapTrap()
 {
@@ -56,24 +54,28 @@ void ClapTrap::copy(ClapTrap const &other)
 	this->armorDamageReduction = other.armorDamageReduction;
 }
 
-
-void	ClapTrap::rangedAttack(std::string const &target)
-{
-	std::cout << "CL4P-TP " << this->name << " attaque " << target 
-	<< " à distance, " << "causant " << this->rangedAttackDamage 
-	<< " points de dégâts !" << std::endl;
-}
-
-void	ClapTrap::meleeAttack(std::string const &target)
+void ClapTrap::rangedAttack(std::string const &target)
 {
 	std::cout << "CL4P-TP " << this->name << " attaque " << target
-	<< " au corp a corp, " << "causant " << this->meleeAttackDamage
-	<< " points de dégâts !" << std::endl;
+			  << " à distance, "
+			  << "causant " << this->rangedAttackDamage
+			  << " points de dégâts !" << std::endl;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::meleeAttack(std::string const &target)
 {
-	this->hitPoints -= (amount - this->armorDamageReduction);
+	std::cout << "CL4P-TP " << this->name << " attaque " << target
+			  << " au corp a corp, "
+			  << "causant " << this->meleeAttackDamage
+			  << " points de dégâts !" << std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+	amount = amount - this->armorDamageReduction;
+	if (amount < 0)
+		amount = 0;
+	this->hitPoints -= amount;
 	if (this->hitPoints < 0)
 	{
 		this->hitPoints = 0;
@@ -83,7 +85,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "votre " << this->name << " n'a presque plus de vie" << std::endl;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
 	this->hitPoints += amount;
 	if (this->hitPoints > this->maxHitPoints)

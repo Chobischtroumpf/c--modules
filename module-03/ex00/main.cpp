@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:33:28 by agossuin          #+#    #+#             */
-/*   Updated: 2020/05/02 21:16:46 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 00:50:06 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main(void)
 	frag.vaulthunter_dot_exe("CL4P-TP");
 	frag.meleeAttack("CL4P-TP");
 	frag.rangedAttack("CL4P-TP");
-	frag.takeDamage(24);
-	frag.beRepaired(50);
+	frag.takeDamage(4);
+	frag.beRepaired(5);
 	frag.takeDamage(42);
 	frag.takeDamage(100);
 	frag.beRepaired(125);

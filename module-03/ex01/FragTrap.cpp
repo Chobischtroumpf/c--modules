@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 21:24:09 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/03 10:50:40 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 00:52:42 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@ std::string FragTrap::quotes[FragTrap::nbrQuotes] = {
 	"Get off my lawn!",
 	"Coffee? Black... like my soul.",
 	"I am Fire, I am Death!",
-	"Lightening! Kukachow!"
-};
+	"Lightening! Kukachow!"};
 
-
-FragTrap::FragTrap(std::string const &name):
-	name(name)
+FragTrap::FragTrap(std::string const &name) : name(name)
 {
 	this->hitPoints = 100;
 	this->energyPoints = 100;
@@ -35,8 +32,7 @@ FragTrap::FragTrap(std::string const &name):
 	std::cout << "Votre Frag-TP Personel a été crée !" << '\n';
 }
 
-FragTrap::FragTrap(FragTrap const &other):
-	name(other.name)
+FragTrap::FragTrap(FragTrap const &other) : name(other.name)
 {
 	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
 	this->level = other.level;
@@ -51,7 +47,7 @@ FragTrap::FragTrap(FragTrap const &other):
 
 FragTrap::~FragTrap()
 {
-	std::cout << this->name << ": Argh arghargh death gurgle gurglegurgle urgh... dead."  << std::endl;
+	std::cout << this->name << ": Argh arghargh death gurgle gurglegurgle urgh... dead." << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &other)
@@ -68,23 +64,28 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 	return (*this);
 }
 
-void	FragTrap::rangedAttack(std::string const &target)
-{
-	std::cout << "FR4G-TP " << this->name << " attaque " << target 
-	<< " à distance, " << "causant " << this->rangedAttackDamage 
-	<< " points de dégâts !" << std::endl;
-}
-
-void	FragTrap::meleeAttack(std::string const &target)
+void FragTrap::rangedAttack(std::string const &target)
 {
 	std::cout << "FR4G-TP " << this->name << " attaque " << target
-	<< " au corp a corp, " << "causant " << this->meleeAttackDamage
-	<< " points de dégâts !" << std::endl;
+			  << " à distance, "
+			  << "causant " << this->rangedAttackDamage
+			  << " points de dégâts !" << std::endl;
 }
 
-void	FragTrap::takeDamage(unsigned int amount)
+void FragTrap::meleeAttack(std::string const &target)
 {
-	this->hitPoints -= (amount - this->armorDamageReduction);
+	std::cout << "FR4G-TP " << this->name << " attaque " << target
+			  << " au corp a corp, "
+			  << "causant " << this->meleeAttackDamage
+			  << " points de dégâts !" << std::endl;
+}
+
+void FragTrap::takeDamage(unsigned int amount)
+{
+	amount = amount - this->armorDamageReduction;
+	if (amount < 0)
+		amount = 0;
+	this->hitPoints -= amount;
 	if (this->hitPoints < 0)
 	{
 		this->hitPoints = 0;
@@ -94,7 +95,7 @@ void	FragTrap::takeDamage(unsigned int amount)
 		std::cout << "votre FR4G-TP n'a presque plus de vie" << std::endl;
 }
 
-void	FragTrap::beRepaired(unsigned int amount)
+void FragTrap::beRepaired(unsigned int amount)
 {
 	this->hitPoints += amount;
 	if (this->hitPoints > this->maxHitPoints)
@@ -108,14 +109,14 @@ void FragTrap::vaulthunter_dot_exe(std::string const &target)
 	{
 		this->energyPoints -= 25;
 		std::cout << this->name << ": "
-				<< FragTrap::quotes[rand() % FragTrap::nbrQuotes] << std::endl
-				<< this->name << " attacks "
-				<< target << " for " << ((rand() % this->meleeAttackDamage) + 1)
-				<< " points of damage!" << std::endl;
+				  << FragTrap::quotes[rand() % FragTrap::nbrQuotes] << std::endl
+				  << this->name << " attacks "
+				  << target << " for " << ((rand() % this->meleeAttackDamage) + 1)
+				  << " points of damage!" << std::endl;
 	}
 	else
 	{
 		std::cout << "FR4G-TP " << this->name
-				<< " is out of energy!" << std::endl;
+				  << " is out of energy!" << std::endl;
 	}
 }
