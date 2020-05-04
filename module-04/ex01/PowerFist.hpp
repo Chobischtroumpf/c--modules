@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 11:48:36 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 14:35:34 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,24 @@
 # include <iostream>
 # include <string>
 
-using std::string;
-using std::cout;
+# include "AWeapon.hpp"
 
-class PowerFist
+class PowerFist: public AWeapon
 {
+private:
+	std::string		name;
 
-	private:
-		std::string		name;
+public:
+	// Constructors
+	PowerFist ();
+	PowerFist (const PowerFist &source);
+	virtual ~PowerFist ();
 
-	public:
-		// Constructors
-		PowerFist ();
-		PowerFist (const PowerFist &source);
-		virtual ~PowerFist ();
+	// Operators
+	PowerFist &operator = (const PowerFist &source);
 
-		// Operators
-		PowerFist &operator = (const PowerFist &source);
-
-		// Utils
-		std::string		getName();
-		void			setName(std::string name);
-
+	// Utils
+	void attack(void) const;
 };
 
 # endif

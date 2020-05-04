@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 11:48:36 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 17:03:30 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,23 @@ using std::cout;
 class Enemy
 {
 
-	private:
-		std::string		name;
+protected:
+	Enemy();
 
-	public:
-		// Constructors
-		Enemy ();
-		Enemy (const Enemy &source);
-		virtual ~Enemy ();
+	std::string	type;
+	int			hp;
+public:
+	Enemy(int hp, std::string const & type);
+	Enemy (const Enemy &source);
+	virtual ~Enemy ();
 
-		// Operators
-		Enemy &operator = (const Enemy &source);
+	// Operators
+	Enemy &operator = (const Enemy &source);
 
-		// Utils
-		std::string		getName();
-		void			setName(std::string name);
 
+	std::string const &getType(void) const;
+	int getHP() const;
+	virtual void takeDamage(int);
 };
 
 # endif

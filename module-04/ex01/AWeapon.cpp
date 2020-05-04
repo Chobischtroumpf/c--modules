@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 12:39:00 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 14:13:14 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Contructors /////////////////////////////////////////////////////////////////
 
 AWeapon::AWeapon():
-	name(std::string()), ap(0), damage(0)
+	name(std::string()), apCost(0), damage(0)
 {
 	std::cout << "Default constructor for AWeapon called" << std::endl;
 }

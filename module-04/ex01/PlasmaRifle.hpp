@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 12:32:32 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 14:23:23 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ class PlasmaRifle: public AWeapon
 		PlasmaRifle ();
 		PlasmaRifle (const PlasmaRifle &source);
 		virtual ~PlasmaRifle ();
-
 		// Operators
 		PlasmaRifle &operator = (const PlasmaRifle &source);
-
 		// Utils
 		void attack(void) const;
 };

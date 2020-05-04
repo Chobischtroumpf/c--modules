@@ -6,30 +6,25 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 12:39:19 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 16:42:13 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PowerFist.hpp"
 
-// Contructors /////////////////////////////////////////////////////////////////
-
-PowerFist::PowerFist()
+PowerFist::PowerFist():
+	AWeapon("Power Fist", 8, 50)
 {
-	std::cout << "Default constructor for PowerFist called" << std::endl;
 }
 
-PowerFist::PowerFist(const PowerFist &source)
+PowerFist::PowerFist(const PowerFist &source):
+	AWeapon(source)
 {
-	std::cout << "Copy constructor for PowerFist called" << std::endl;
 }
 
 PowerFist::~PowerFist()
 {
-	std::cout << "Destructor for PowerFist called" << std::endl;
 }
-
-// Operators ///////////////////////////////////////////////////////////////////
 
 PowerFist& PowerFist::operator = (const PowerFist &source)
 {
@@ -37,14 +32,7 @@ PowerFist& PowerFist::operator = (const PowerFist &source)
 	return *this;
 }
 
-// Utils ///////////////////////////////////////////////////////////////////////
-
-void		PowerFist::setName(std::string name) //generic function
+void PowerFist::attack(void) const
 {
-	name = name;
-}
-
-std::string	PowerFist::getName() //generic function
-{
-	return name;
+	
 }

@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 12:39:13 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 14:29:18 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,15 @@ PlasmaRifle::~PlasmaRifle()
 PlasmaRifle& PlasmaRifle::operator = (PlasmaRifle const &source)
 {
 	std::cout << "Assignations operator for PlasmaRifle called" << std::endl;
+	this->name =  source.name;
+	this->apCost = source.apCost;
+	this->damage = source.damage;
 	return *this;
 }
 
 // Utils ///////////////////////////////////////////////////////////////////////
 
-void		PlasmaRifle::setName(std::string name) //generic function
+void PlasmaRifle::attack(void) const
 {
-	name = name;
-}
-
-std::string	PlasmaRifle::getName() //generic function
-{
-	return name;
+	std::cout << "* piouuu piouuu piouu *" << std::endl;
 }
