@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 16:42:13 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/05 16:15:01 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ PowerFist::~PowerFist()
 
 PowerFist& PowerFist::operator = (const PowerFist &source)
 {
-	std::cout << "Assignations operator for PowerFist called" << std::endl;
-	return *this;
+	this->name = source.name;
+	this->apCost = source.apCost;
+	this->damage = source.damage;
+	return (*this);
 }
+
 
 void PowerFist::attack(void) const
 {
-	
+	std::cout << "* pschhh... SBAM! *" << std::endl;
 }

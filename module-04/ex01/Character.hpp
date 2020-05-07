@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 11:48:36 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/05 09:56:47 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,38 @@
 # define CHARACTER_HPP
 # include <iostream>
 # include <string>
-
-using std::string;
-using std::cout;
+# include "AWeapon.hpp"
+# include "Enemy.hpp"
 
 class Character
 {
 
-	private:
-		std::string		name;
+private:
+	Character();
 
-	public:
-		// Constructors
-		Character ();
-		Character (const Character &source);
-		virtual ~Character ();
+	std::string		name;
+	int				ap;
+	AWeapon			*weapon;
 
-		// Operators
-		Character &operator = (const Character &source);
+public:
+	// Constructors
+	Character (std::string const &name);
+	Character (const Character &source);
+	virtual ~Character ();
 
-		// Utils
-		std::string		getName();
-		void			setName(std::string name);
+	// Operators
+	Character &operator = (const Character &source);
 
+	std::string const &getName(void) const;
+	int getAP(void) const;
+	AWeapon *getWeapon(void) const;
+
+	void recoverAP(void);
+	void equip(AWeapon *weapon);
+	void attack(Enemy *enemy);
 };
+
+
+std::ostream &operator<<(std::ostream &out, Character const &chara);
 
 # endif

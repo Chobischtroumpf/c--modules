@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 13:09:14 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 13:09:14 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/06 09:16:58 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,47 @@
 
 TacticalMarine::TacticalMarine()
 {
-	std::cout << "Default constructor for TacticalMarine called" << std::endl;
+	std::cout << "Tactical Marine ready for battle" << std::endl;
 }
 
 TacticalMarine::TacticalMarine(const TacticalMarine &source)
 {
-	std::cout << "Copy constructor for TacticalMarine called" << std::endl;
+	(void)source;
+	std::cout << "Tactical Marine ready for battle" << std::endl;
 }
 
 TacticalMarine::~TacticalMarine()
 {
-	std::cout << "Destructor for TacticalMarine called" << std::endl;
+	std::cout << "Aaargh ..." << std::endl;
 }
 
 // Operators ///////////////////////////////////////////////////////////////////
 
 TacticalMarine& TacticalMarine::operator = (TacticalMarine const &source)
 {
-	std::cout << "Assignations operator for TacticalMarine called" << std::endl;
+	(void)source;
 	return *this;
 }
 
 // Utils ///////////////////////////////////////////////////////////////////////
 
-void		TacticalMarine::setName(std::string name) //generic function
+
+ISpaceMarine *TacticalMarine::clone(void) const
 {
-	name = name;
+	TacticalMarine *cpy = new TacticalMarine(*this);
+	return (cpy);
+}
+void TacticalMarine::battleCry(void) const
+{
+	std::cout << "For the holy PLOT !" << std::endl;
 }
 
-std::string	TacticalMarine::getName() //generic function
+void TacticalMarine::rangedAttack(void) const
 {
-	return name;
+	std::cout << "* attacks with bolter *" << std::endl;
 }
 
-
-std::ostream &operator<<(std::ostream &out, TacticalMarine const &TacticalMarine)
+void TacticalMarine::meleeAttack(void) const
 {
-	out << TacticalMarine.getName()
-	return (out);
+	std::cout << "*attacks with chainsword *" << std::endl;
 }

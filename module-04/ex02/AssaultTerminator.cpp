@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 13:09:14 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 13:11:20 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/06 08:58:01 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,47 @@
 
 AssaultTerminator::AssaultTerminator()
 {
-	std::cout << "Default constructor for AssaultTerminator called" << std::endl;
+	std::cout << "* teleports from space *" << std::endl;
 }
 
 AssaultTerminator::AssaultTerminator(const AssaultTerminator &source)
 {
-	std::cout << "Copy constructor for AssaultTerminator called" << std::endl;
+	(void)source;
+	std::cout << "* teleports from space *" << std::endl;
 }
 
 AssaultTerminator::~AssaultTerminator()
 {
-	std::cout << "Destructor for AssaultTerminator called" << std::endl;
+	std::cout <<  "I’ll be back ..." << std::endl;
 }
 
 // Operators ///////////////////////////////////////////////////////////////////
 
-AssaultTerminator& AssaultTerminator::operator = (AssaultTerminator const &source)
+AssaultTerminator& AssaultTerminator::operator=(AssaultTerminator const &source)
 {
-	std::cout << "Assignations operator for AssaultTerminator called" << std::endl;
+	(void)source;
 	return *this;
 }
 
 // Utils ///////////////////////////////////////////////////////////////////////
 
-void		AssaultTerminator::setName(std::string name) //generic function
+ISpaceMarine *AssaultTerminator::clone(void) const
 {
-	name = name;
+	AssaultTerminator *cpy = new AssaultTerminator(*this);
+	return (cpy);
 }
 
-std::string	AssaultTerminator::getName() const //generic function
+void AssaultTerminator::battleCry(void) const
 {
-	return name;
+	std::cout << "this code is unclean. PURIFY IT" << std::endl;
 }
 
-
-std::ostream &operator<<(std::ostream &out, AssaultTerminator const &assaultTerminator)
+void AssaultTerminator::rangedAttack(void) const
 {
-	out << assaultTerminator.getName();
-	return (out);
+	std::cout << "* does nothing *" << std::endl;
+}
+
+void AssaultTerminator::meleeAttack(void) const
+{
+	std::cout << "* attacks with chainfists *" << std::endl;
 }

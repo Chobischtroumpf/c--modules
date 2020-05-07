@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 12:40:47 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/05 16:32:28 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,36 @@
 
 // Contructors /////////////////////////////////////////////////////////////////
 
-SuperMutant::SuperMutant()
+SuperMutant::SuperMutant():
+	Enemy(170, "Super Mutant")
 {
-	std::cout << "Default constructor for SuperMutant called" << std::endl;
+	std::cout << "Gaaah. Me want smash heads !" << std::endl;
 }
 
-SuperMutant::SuperMutant(const SuperMutant &source)
+SuperMutant::SuperMutant(SuperMutant const &other):
+	Enemy(other)
 {
-	std::cout << "Copy constructor for SuperMutant called" << std::endl;
+	std::cout << "Gaaah. Me want smash heads !" << std::endl;
 }
 
 SuperMutant::~SuperMutant()
 {
-	std::cout << "Destructor for SuperMutant called" << std::endl;
+	std::cout << "Aaargh ..." << std::endl;
 }
 
 // Operators ///////////////////////////////////////////////////////////////////
 
-SuperMutant& SuperMutant::operator = (const SuperMutant &source)
+SuperMutant &SuperMutant::operator=(SuperMutant const &other)
 {
-	std::cout << "Assignations operator for SuperMutant called" << std::endl;
-	return *this;
+	this->type = other.type;
+	this->hp = other.hp;
+	return (*this);
 }
+
 
 // Utils ///////////////////////////////////////////////////////////////////////
 
-void		SuperMutant::setName(std::string name) //generic function
+void SuperMutant::takeDamage(int damage)
 {
-	name = name;
-}
-
-std::string	SuperMutant::getName() //generic function
-{
-	return name;
+	Enemy::takeDamage(damage - 3);
 }

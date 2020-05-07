@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Squap.hpp                                          :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 13:09:14 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 13:09:14 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/06 09:24:03 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/07 08:47:54 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SQUAP_HPP
-# define SQUAP_HPP
-# include <iostream>
-# include <string>
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
+# include "ICharacter.hpp"
 
-using std::string;
-using std::cout;
-
-class Squap
+class Character: public ICharacter
 {
 
 	private:
-		std::string		name;
+		Character();
 
+		std::string		name;
+		int equipped;
+		AMateria *inventory[4];
 	public:
 		// Constructors
-		Squap ();
-		Squap (const Squap &source);
-		virtual ~Squap ();
+		Character (std::string const &name);
+		Character (const Character &source);
+		virtual ~Character ();
 
 		// Operators
-		Squap &operator = (const Squap &source);
+		Character &operator=(const Character &source);
 
 		// Utils
-		std::string		getName();
-		void			setName(std::string name);
-
+		std::string const &getName() const;
+		void equip(AMateria *materia);
+		void unequip(int idx);
+		void use(int idx, ICharacter &target);
 };
-
-std::ostream &operator<<(std::ostream &out, Squap const &squap);
 
 # endif

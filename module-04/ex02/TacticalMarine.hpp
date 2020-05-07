@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 13:09:14 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 13:09:14 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/06 09:00:39 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 # define TACTICALMARINE_HPP
 # include <iostream>
 # include <string>
+# include "ISpaceMarine.hpp"
 
-using std::string;
-using std::cout;
-
-class TacticalMarine
+class TacticalMarine: public ISpaceMarine
 {
-
-	private:
-		std::string		name;
-
 	public:
 		// Constructors
 		TacticalMarine ();
@@ -34,11 +28,11 @@ class TacticalMarine
 		TacticalMarine &operator = (const TacticalMarine &source);
 
 		// Utils
-		std::string		getName();
-		void			setName(std::string name);
+		ISpaceMarine *clone(void) const;
+		void battleCry(void) const;
+		void rangedAttack(void) const;
+		void meleeAttack(void) const;
 
 };
-
-std::ostream &operator<<(std::ostream &out, TacticalMarine const &tacticalmarine);
 
 # endif

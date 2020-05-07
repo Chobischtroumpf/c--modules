@@ -6,18 +6,77 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 13:09:14 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 13:09:14 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/06 09:18:37 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Squap.hpp"
+#include "Squad.hpp"
 #include "TacticalMarine.hpp"
 #include "AssaultTerminator.hpp"
 #include "ISpaceMarine.hpp"
-#include "Isqad.hpp"
+#include "ISquad.hpp"
+#define UNITS	50
 
-int main(int argc, char const *argv[])
+int main(void)
 {
+	ISpaceMarine* bob = new TacticalMarine;
+	ISpaceMarine* jim = new AssaultTerminator;
 
-	return 0;
+	ISquad* vlc = new Squad;
+	vlc->push(bob);
+	vlc->push(jim);
+	for (int i = 0; i < vlc->getCount(); ++i)
+	{
+		ISpaceMarine* cur = vlc->getUnit(i);
+		cur->battleCry();
+		cur->rangedAttack();
+		cur->meleeAttack();
+	}
+	delete vlc;
+
+	std::cout << "---" << std::endl;
+
+	Squad squad;
+
+	squad.push(new TacticalMarine);
+	squad.push(new AssaultTerminator);
+	for (int i = 2; i < UNITS; i++)
+	{
+		if ((rand() % 100) > UNITS)
+			squad.push(new TacticalMarine);
+		else
+			squad.push(new AssaultTerminator);
+	}
+	for (int i = 0; i < UNITS; i++)
+	{
+		int r = (rand() % 100);
+		std::cout << i << ": ";
+		if (r > 66)
+			squad.getUnit(i)->battleCry();
+		else if (r > 33)
+			squad.getUnit(i)->rangedAttack();
+		else
+			squad.getUnit(i)->meleeAttack();
+	}
+	std::cout << squad.getCount() << " -> " << squad.push(nullptr) << std::endl;
+	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS - 1)) << std::endl;
+	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS)) << std::endl;
+	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS + 1)) << std::endl;
+	std::cout << squad.getUnit(-1) << " " << squad.getUnit(10000) << std::endl;
+
+	TacticalMarine *tac = new TacticalMarine(*static_cast<TacticalMarine*>(squad.getUnit(0)));
+	std::cout << squad.getCount() << " -> " << squad.push(tac) << std::endl;
+	tac = static_cast<TacticalMarine*>(squad.getUnit(0)->clone());
+	std::cout << squad.getCount() << " -> " << squad.push(tac) << std::endl;
+	AssaultTerminator *ast = new AssaultTerminator(*static_cast<AssaultTerminator*>(squad.getUnit(1)));
+	std::cout << squad.getCount() << " -> " << squad.push(ast) << std::endl;
+	ast = static_cast<AssaultTerminator*>(squad.getUnit(1)->clone());
+	std::cout << squad.getCount() << " -> " << squad.push(ast) << std::endl;
+
+	TacticalMarine tes = *static_cast<TacticalMarine*>(squad.getUnit(0));
+	tes = *static_cast<TacticalMarine*>(squad.getUnit(0));
+	AssaultTerminator aes = *static_cast<AssaultTerminator*>(squad.getUnit(1));
+	aes = *static_cast<AssaultTerminator*>(squad.getUnit(1));
+
+	return (0);
 }

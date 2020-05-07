@@ -1,47 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/05 17:00:06 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/06 09:24:03 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/07 09:08:39 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PlasmaRifle.hpp"
+#include "Cure.hpp"
 
 // Contructors /////////////////////////////////////////////////////////////////
 
-PlasmaRifle::PlasmaRifle():
-	AWeapon("Plasma Rifle", 5, 21)
+Cure::Cure():
+	AMateria("cure")
 {
 }
 
-PlasmaRifle::PlasmaRifle(const PlasmaRifle &source):
-	AWeapon(source)
+Cure::Cure(const Cure &source):
+	AMateria("cure")
 {
+	this->_xp = source._xp;
 }
 
-PlasmaRifle::~PlasmaRifle()
+Cure::~Cure()
 {
 }
 
 // Operators ///////////////////////////////////////////////////////////////////
 
-PlasmaRifle& PlasmaRifle::operator = (PlasmaRifle const &source)
+Cure& Cure::operator = (const Cure &source)
 {
-	std::cout << "Assignations operator for PlasmaRifle called" << std::endl;
-	this->name =  source.name;
-	this->apCost = source.apCost;
-	this->damage = source.damage;
+	this->_xp = source._xp;
 	return *this;
 }
 
-// Utils ///////////////////////////////////////////////////////////////////////
+// set-get ///////////////////////////////////////////////////////////////////////
 
-void PlasmaRifle::attack(void) const
+AMateria *Cure::clone(void) const
 {
-	std::cout << "* piouuu piouuu piouu *" << std::endl;
+	Cure *cpy = new Cure(*this);
+	return (cpy);
 }
+
+void Cure::use(ICharacter &target)
+{
+	AMateria::use(target);
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
+

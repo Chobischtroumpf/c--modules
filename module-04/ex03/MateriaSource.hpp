@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AssaultTerminator.hpp                              :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 13:09:14 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/06 08:49:10 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/06 09:24:03 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/07 08:46:18 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ASSAULTTERMINATOR_HPP
-# define ASSAULTTERMINATOR_HPP
-# include <iostream>
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 # include <string>
-# include "ISpaceMarine.hpp"
-class AssaultTerminator: public ISpaceMarine
+# include "IMateriaSource.hpp"
+
+class MateriaSource: public IMateriaSource
 {
+
+	private:
+		int amount;
+		AMateria *sources[4];
 	public:
 		// Constructors
-		AssaultTerminator ();
-		AssaultTerminator (const AssaultTerminator &source);
-		virtual ~AssaultTerminator ();
+		MateriaSource ();
+		MateriaSource (const MateriaSource &source);
+		virtual ~MateriaSource ();
 
 		// Operators
-		AssaultTerminator &operator = (const AssaultTerminator &source);
+		MateriaSource &operator=(const MateriaSource &source);
 
 		// Utils
-		ISpaceMarine *clone(void) const;
-		void battleCry(void) const;
-		void rangedAttack(void) const;
-		void meleeAttack(void) const;
+		void learnMateria(AMateria *materia);
+		AMateria *createMateria(std::string const &type);
 
 };
 

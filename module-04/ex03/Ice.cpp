@@ -1,47 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/05 17:00:06 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/06 09:24:03 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/07 09:08:34 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PlasmaRifle.hpp"
+#include "Ice.hpp"
 
 // Contructors /////////////////////////////////////////////////////////////////
 
-PlasmaRifle::PlasmaRifle():
-	AWeapon("Plasma Rifle", 5, 21)
+Ice::Ice():
+	AMateria("ice")
 {
 }
 
-PlasmaRifle::PlasmaRifle(const PlasmaRifle &source):
-	AWeapon(source)
+Ice::Ice(const Ice &source):
+	AMateria("ice")
 {
+	this->_xp = source._xp;
 }
 
-PlasmaRifle::~PlasmaRifle()
+Ice::~Ice()
 {
 }
 
 // Operators ///////////////////////////////////////////////////////////////////
 
-PlasmaRifle& PlasmaRifle::operator = (PlasmaRifle const &source)
+Ice& Ice::operator = (const Ice &source)
 {
-	std::cout << "Assignations operator for PlasmaRifle called" << std::endl;
-	this->name =  source.name;
-	this->apCost = source.apCost;
-	this->damage = source.damage;
+	this->_xp = source._xp;
 	return *this;
 }
 
-// Utils ///////////////////////////////////////////////////////////////////////
+// set-get ///////////////////////////////////////////////////////////////////////
 
-void PlasmaRifle::attack(void) const
+AMateria *Ice::clone(void) const
 {
-	std::cout << "* piouuu piouuu piouu *" << std::endl;
+	Ice *cpy = new Ice (*this);
+	return cpy;
+}
+
+void Ice::use(ICharacter &target)
+{
+	AMateria::use(target);
+	std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
 }

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 17:52:26 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/05 17:26:00 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/05 17:41:41 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-# define RADSCORPION_HPP
-# include "Enemy.hpp"
 
-class RadScorpion: public Enemy
+#ifndef ISQUAD_HPP
+# define ISQUAD_HPP
+# include "ISpaceMarine.hpp"
+
+class ISquad
 {
 public:
-	// Constructors
-	RadScorpion ();
-	RadScorpion (const RadScorpion &source);
-	virtual ~RadScorpion ();
-
-	// Operators
-	RadScorpion &operator = (const RadScorpion &source);
-
-	using Enemy::takeDamage;
+	virtual ~ISquad() {};
+	virtual int getCount(void) const = 0;
+	virtual ISpaceMarine *getUnit(int index) const = 0;
+	virtual int push(ISpaceMarine *unit) = 0;
 };
 
-# endif
+#endif

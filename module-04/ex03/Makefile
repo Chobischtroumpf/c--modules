@@ -11,13 +11,11 @@ OBJDIR	= objs/
 
 CXXFLAGS	+= -I $(INCDIR)
 
-SRCS	= 		AWeapon.cpp \
-		PlasmaRifle.cpp \
-		PowerFist.cpp \
-		Enemy.cpp \
-		SuperMutant.cpp \
-		RadScorpion.cpp \
+SRCS	= 		AMateria.cpp \
+		Ice.cpp \
+		Cure.cpp \
 		Character.cpp \
+		MateriaSource.cpp \
 		main.cpp
 
 SRC		:= $(notdir $(SRCS)) # 					Files only

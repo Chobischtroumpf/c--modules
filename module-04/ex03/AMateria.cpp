@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 17:51:17 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/06 09:24:03 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/07 08:48:03 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RadScorpion.hpp"
+#include "AMateria.hpp"
 
 // Contructors /////////////////////////////////////////////////////////////////
 
-RadScorpion::RadScorpion()
+AMateria::AMateria(std::string const &type):
+	_type(type), _xp(0)
 {
-	std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion(const RadScorpion &source)
+AMateria::~AMateria()
 {
-	std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::~RadScorpion()
+// set-get ///////////////////////////////////////////////////////////////////////
+
+std::string const &AMateria::getType(void) const //generic function
 {
-	std::cout << "* SPROTCH *" << std::endl;
+	return (this->_type);
 }
 
-// Operators ///////////////////////////////////////////////////////////////////
-
-RadScorpion &RadScorpion::operator=(RadScorpion const &source)
+unsigned int	AMateria::getXP(void) const //generic function
 {
-	this->type = source.type;
-	this->hp = source.hp;
-	return (*this);
+	return (this->_xp);
+}
+
+void AMateria::use(ICharacter &target)
+{
+	(void)target;
+	this->_xp +=10;
 }

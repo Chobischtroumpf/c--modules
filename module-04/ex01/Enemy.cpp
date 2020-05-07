@@ -6,45 +6,53 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:48:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/04 12:42:15 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/04 17:48:55 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Enemy.hpp"
 
-// Contructors /////////////////////////////////////////////////////////////////
-
-Enemy::Enemy()
+Enemy::Enemy():
+	type(std::string()), hp(0)
 {
-	std::cout << "Default constructor for Enemy called" << std::endl;
 }
 
-Enemy::Enemy(const Enemy &source)
+Enemy::Enemy(int hp, std::string const &type):
+	type(type), hp(hp)
 {
-	std::cout << "Copy constructor for Enemy called" << std::endl;
+}
+
+Enemy::Enemy(Enemy const &other):
+	type(other.type), hp(other.hp)
+{
 }
 
 Enemy::~Enemy()
 {
-	std::cout << "Destructor for Enemy called" << std::endl;
 }
 
-// Operators ///////////////////////////////////////////////////////////////////
-
-Enemy& Enemy::operator = (const Enemy &source)
+Enemy &Enemy::operator=(Enemy const &other)
 {
-	std::cout << "Assignations operator for Enemy called" << std::endl;
-	return *this;
+	this->type = other.type;
+	this->hp = other.hp;
+	return (*this);
 }
 
-// Utils ///////////////////////////////////////////////////////////////////////
-
-void		Enemy::setName(std::string name) //generic function
+std::string const &Enemy::getType(void) const
 {
-	name = name;
+	return (this->type);
 }
 
-std::string	Enemy::getName() //generic function
+int Enemy::getHP(void) const
 {
-	return name;
+	return (this->hp);
+}
+
+void Enemy::takeDamage(int damage)
+{
+	if (damage < 0)
+		return ;
+	this->hp -= damage;
+	if (this->hp < 0)
+		this->hp = 0;
 }

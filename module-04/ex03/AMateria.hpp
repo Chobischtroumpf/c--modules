@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 13:09:14 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/05 17:42:00 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/06 09:24:03 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/07 09:07:30 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISPACEMARINE_HPP
-# define ISPACEMARINE_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
+
 # include <iostream>
 # include <string>
+class AMateria;
+# include "ICharacter.hpp"
 
-class ISpaceMarine
+class AMateria
 {
+private:
+	AMateria();
+protected:
+	std::string _type;
+	unsigned int _xp;
 public:
-	virtual ~ISpaceMarine() {};
-	virtual ISpaceMarine *clone(void) const = 0;
-	virtual void battleCry(void) const = 0;
-	virtual void rangedAttack(void) const = 0;
-	virtual void meleeAttack(void) const = 0;
+	AMateria(std::string const & type);
+	virtual ~AMateria();
+	
+	std::string const & getType() const; //Returns the materia type
+	unsigned int getXP() const; //Returns the Materia's XP
+
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter &target);
 };
 
 # endif
