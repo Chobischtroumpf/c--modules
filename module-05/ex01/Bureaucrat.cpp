@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 09:20:31 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/07 10:51:08 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/08 14:58:17 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,26 @@ void Bureaucrat::decrementGrade(void)
 	this->grade++;
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+}
+
+void Bureaucrat::signForm(Form &form) const
+{
+	if (form.isSigned())
+	{
+		std::cout << *this << " cannot sign " << form 
+			<< " because the form is already signed." << std::endl;
+	}
+	else if (this->grade > form.getSignGrade())
+	{
+		std::cout << *this << " cannot sign " << form
+			<< " because it's grade is too low" << std::endl;
+	}
+	else
+	{
+		std::cout <<*this << " signs " << form << std::endl;
+	}
+	form.beSigned(*this);
+	
 }
 
 // stream //////////////////////////////////////////////////////////////////////

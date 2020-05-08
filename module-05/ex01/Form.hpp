@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 10:52:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/07 10:52:36 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/08 13:08:16 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define FORM_HPP
 # include <iostream>
 # include <string>
-
-using std::string;
-using std::cout;
+class Form;
+# include "Bureaucrat.hpp"
 
 
 class Form
@@ -24,20 +23,35 @@ class Form
 
 	private:
 		std::string		name;
-
+		bool sign;
+		int gradeExec;
+		int gradeSign;
 	public:
 		// Constructors
-		Form ();
+		Form (std::string const &name, int const gradeSign, int const gradeExec);
 		Form (const Form &source);
 		virtual ~Form ();
+
+		class GradeTooHighException: public std::exception {
+			virtual const char* what() const throw();
+		};
+		class GradeTooLowException: public std::exception {
+			virtual const char* what() const throw();
+		};
+		class FormAlreadySignedException: public std::exception {
+			virtual const char* what() const throw();
+		};
 
 		// Operators
 		Form &operator=(const Form &source);
 
 		// Utils
-		std::string		getName() const;
-		void			setName(std::string name);
+		std::string	const &getName() const;
+		bool isSigned(void) const;
+		int getSignGrade(void) const;
+		int getExecGrade(void) const;
 
+		void beSigned(Bureaucrat const &bureaucrat);
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &obj);
