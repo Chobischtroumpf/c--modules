@@ -1,59 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/07 10:52:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/08 15:57:55 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/07 09:20:31 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/09 14:38:38 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 # include <iostream>
 # include <string>
-class Form;
-# include "Bureaucrat.hpp"
+class Bureaucrat;
+# include "Form.hpp"
 
-
-class Form
+class Bureaucrat
 {
 
 	private:
-		std::string		name;
-		bool sign;
-		int gradeExec;
-		int gradeSign;
+		std::string const name;
+		int grade;
 	public:
 		// Constructors
-		Form (std::string const &name, int const gradeSign, int const gradeExec);
-		Form (const Form &source);
-		virtual ~Form ();
+		Bureaucrat (std::string const &name, int grade);
+		Bureaucrat (const Bureaucrat &source);
+		virtual ~Bureaucrat ();
 
 		class GradeTooHighException: public std::exception {
 			virtual const char* what() const throw();
 		};
+
 		class GradeTooLowException: public std::exception {
-			virtual const char* what() const throw();
-		};
-		class FormAlreadySignedException: public std::exception {
 			virtual const char* what() const throw();
 		};
 
 		// Operators
-		Form &operator=(const Form &source);
+		Bureaucrat &operator=(const Bureaucrat &source);
 
 		// Utils
-		std::string	const &getName() const;
-		bool isSigned(void) const;
-		int getGradeSign(void) const;
-		int getGradeExec(void) const;
+		std::string		getName(void) const;
+		int				getGrade(void) const;
 
-		void beSigned(Bureaucrat const &bureaucrat);
+		void			incrementGrade(void);
+		void			decrementGrade(void);
+
+		void			signForm(Form &form) const;
+		void			executeForm(Form const &form) const;
+
 };
 
-std::ostream &operator<<(std::ostream &out, Form const &obj);
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &obj);
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 10:52:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/08 15:58:47 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/05/09 21:03:02 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ const char* Form::FormAlreadySignedException::what() const throw()
 {
 	return("FormException: Form is already signed");
 }
+
+const char* Form::UnsignedFormException::what() const throw()
+{
+	return "FormException: Unsigned form can not be executed";
+}
+
 // Operators ///////////////////////////////////////////////////////////////////
 
 Form& Form::operator=(const Form &source)
@@ -86,6 +92,14 @@ void Form::beSigned(Bureaucrat const &bureaucrat)
 	else if (this->sign)
 		throw Form::FormAlreadySignedException();
 	this->sign = true;
+}
+
+void Form::execute(Bureaucrat const &bureaucrat) const
+{
+	if (bureaucrat.getGrade() > this->gradeExec)
+		throw Form::GradeTooLowException();
+	if (!this->sign)
+		throw Form::UnsignedFormException();
 }
 
 // stream //////////////////////////////////////////////////////////////////////
