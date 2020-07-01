@@ -6,12 +6,12 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 10:52:36 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/08 14:57:18 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/06/01 10:51:17 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ClassBureaucrat.hpp"
+#include "ClassForm.hpp"
 
 int main(int argc, char const *argv[])
 {

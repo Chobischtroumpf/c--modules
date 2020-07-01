@@ -5,119 +5,93 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/08 15:04:48 by adorigo           #+#    #+#             */
-/*   Updated: 2020/05/09 21:30:55 by adorigo          ###   ########.fr       */
+/*   Created: 2020/05/18 13:44:06 by adorigo           #+#    #+#             */
+/*   Updated: 2020/05/18 16:09:15 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
+#include "OfficeBlock.hpp"
 
-
-int main(int argc, char const *argv[])
+int main(void)
 {
 	srand(time(NULL));
-	Intern someIntern;
+	Intern idiotOne;
+	Bureaucrat hermes = Bureaucrat("Hermes Conrad", 37);
+	Bureaucrat jack = Bureaucrat("Jack K", 25);
+	Bureaucrat bob = Bureaucrat("Bobby Bobson", 123);
+	Bureaucrat jean = Bureaucrat("Jean Jonson", 101);
+	OfficeBlock ob;
 
-	Bureaucrat supervisor("Supervisor", 1);
-	std::cout << supervisor << std::endl;
-	Bureaucrat patrice("Patrice", 25); // 1
-	std::cout << "1: " << patrice << std::endl;
-	patrice.incrementGrade(); // 2
-	std::cout << "2: " << patrice << std::endl;
-	patrice.decrementGrade(); // 3
-	std::cout << "3: "<< patrice << std::endl;
-
-	Form *shrub = someIntern.makeForm("Shrubbery Creation", "home");
-	std::cout << "4: " <<*shrub << std::endl;
-	shrub->beSigned(supervisor);
-	shrub->execute(patrice);
-
-	Form *pres = someIntern.makeForm("Presidential Pardon", "patrice");
-	std::cout << "5: " << *pres << std::endl;
-	supervisor.signForm(*pres);
-	pres->execute(supervisor);
-
-	Form *robot = someIntern.makeForm("Robotomy Request", "Bender");
-	std::cout << "6: " << *robot << std::endl;
-	robot->beSigned(supervisor);
-	robot->execute(patrice);
-	patrice.executeForm(*robot);
-	patrice.executeForm(*robot);
-
-
-	std::cout << "try 1" << std::endl;
+	ob.setIntern(idiotOne);
+	ob.setSigner(bob);
 
 	try
 	{
-		patrice.executeForm(*pres);
+		ob.doBureaucracy("Shrubbery Creation", "home");
 	}
-	catch(std::exception const &e)
+	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "Try 2" << std::endl;
+	std::cout << "---" << std::endl;
 
 	try
 	{
-		RobotomyRequestForm robot = RobotomyRequestForm("Bender");
-		std::cout << robot << std::endl;
-		robot.execute(supervisor);
+		ob.setExecutor(bob);
 	}
-	catch(std::exception const &e)
+	catch(OfficeBlock::BureaucratAlreadyAssignedException & e)
+	{
+		std::cerr << bob << " has already a position in this Office Block" << std::endl;
+	}
+	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "Try 3" << std::endl;
+	std::cout << "---" << std::endl;
+
+	ob.setExecutor(hermes);
 
 	try
 	{
-		PresidentialPardonForm pres = PresidentialPardonForm("patrice");
-		std::cout << pres << std::endl;
-		supervisor.signForm(pres);
-		pres.execute(patrice);
+		ob.doBureaucracy("Shrubbery Creation", "home");
 	}
-	catch(std::exception const &e)
+	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "Try 4" << std::endl;
+	std::cout << "---" << std::endl;
+
+	ob.setExecutor(jean);
 
 	try
 	{
-		PresidentialPardonForm pres = PresidentialPardonForm("patrice");
-		std::cout << pres << std::endl;
-		supervisor.signForm(pres);
-		patrice.executeForm(pres);
+		ob.doBureaucracy("Presidential Pardon", "Morty");
 	}
-	catch(std::exception const &e)
+	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "Try 5" << std::endl;
+	std::cout << "---" << std::endl;
 
+	ob.setSigner(jack);
 	try
 	{
-		Form *ran = someIntern.makeForm("Random Form", "nobody");
-		std::cout << ran << std::endl;
+		ob.doBureaucracy("Presidential Pardon", "Morty");
 	}
-	catch(std::exception const &e)
+	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
-	delete shrub;
-	delete pres;
-	delete robot;
 
 	return (0);
 }

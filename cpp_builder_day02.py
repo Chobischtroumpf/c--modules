@@ -57,13 +57,11 @@ class {name}
 		std::string		name;
 
 	public:
-		// Constructors
+		// Colpien's form
 		{name} ();
 		{name} (const {name} &source);
-		virtual ~{name} ();
-
-		// Operators
 		{name} &operator=(const {name} &source);
+		virtual ~{name} ();
 
 		// Utils
 		std::string		getName() const;
@@ -79,9 +77,9 @@ std::ostream &operator<<(std::ostream &out, {name} const &obj);
 
 def generate_hpp(name):
     try:
-        fhpp = open(f"{name}.hpp", "x")  # security
-        fhpp = open(f"{name}.hpp", "w")
-        fhpp.write(header(f"{name}.hpp"))
+        fhpp = open(f"Class{name}.hpp", "x")  # security
+        fhpp = open(f"Class{name}.hpp", "w")
+        fhpp.write(header(f"Class{name}.hpp"))
         fhpp.write(f"#ifndef {name.upper()}_HPP\n")
         fhpp.write(f"# define {name.upper()}_HPP\n")
         fhpp.write(INCLUDES)
@@ -92,9 +90,9 @@ def generate_hpp(name):
 
 
 def cpp_template(name):
-    return f"""#include \"{name}.hpp\"
+    return f"""#include \"Class{name}.hpp\"
 
-// Contructors /////////////////////////////////////////////////////////////////
+// Coplien's form //////////////////////////////////////////////////////////////
 
 {name}::{name}()
 {'{'}
@@ -103,7 +101,15 @@ def cpp_template(name):
 
 {name}::{name}(const {name} &source)
 {'{'}
+	this->name = source.name;
 	std::cout << "Copy constructor for {str(name)} called" << std::endl;
+{'}'}
+
+{name}& {name}::operator = (const {name} &source)
+{'{'}
+	this->name = source.name;
+	std::cout << "Assignations operator for {str(name)} called" << std::endl;
+	return *this;
 {'}'}
 
 {name}::~{name}()
@@ -111,19 +117,11 @@ def cpp_template(name):
 	std::cout << "Destructor for {str(name)} called" << std::endl;
 {'}'}
 
-// Operators ///////////////////////////////////////////////////////////////////
-
-{name}& {name}::operator = (const {name} &source)
-{'{'}
-	std::cout << "Assignations operator for {str(name)} called" << std::endl;
-	return *this;
-{'}'}
-
 // set-get ///////////////////////////////////////////////////////////////////////
 
 void		{name}::setName(std::string name) //generic function
 {'{'}
-	name = name;
+	this->name = name;
 {'}'}
 
 std::string	{name}::getName() const//generic function
@@ -138,6 +136,8 @@ std::ostream &operator<<(std::ostream &out, {name} const &obj)
 	out << obj.getName();
 	return out;
 {'}'}
+
+// others //////////////////////////////////////////////////////////////////////
 
 """
 
@@ -216,20 +216,20 @@ debug :
 
 def generate_cpp(name):
     try:
-        fhpp = open(f"{name}.cpp", "x")  # security
-        fhpp = open(f"{name}.cpp", "w")
-        fhpp.write(header(f"{name}.cpp"))
+        fhpp = open(f"Class{name}.cpp", "x")  # security
+        fhpp = open(f"Class{name}.cpp", "w")
+        fhpp.write(header(f"Class{name}.cpp"))
         fhpp.write(cpp_template(name))
         fhpp.close()
     except:
-        print(f"{name}.cpp already in your directory!")
+        print(f"Class{name}.cpp already in your directory!")
 
 
 def generate_makefile():
     fmakef = open("Makefile", "w")  # no security for the Makefile
     fmakef.write(FIRST_PART_MAKEFILE)
     for i in sys.argv[1:]:
-        fmakef.write(f"\t\t{i}.cpp \\\n")
+        fmakef.write(f"\t\tClass{i.capitalize()}.cpp \\\n")
     fmakef.write(LAST_PART_MAKEFILE)
     fmakef.close()
 
@@ -240,7 +240,7 @@ def generate_main():
         fmain = open("main.cpp", "w")
         fmain.write(header("main.cpp"))
         for i in sys.argv[1:]:
-            fmain.write(f"#include \"{i}.hpp\"\n")
+            fmain.write(f"#include \"Class{i.capitalize()}.hpp\"\n")
         fmain.write(CMAIN)
         fmain.close()
     except:
@@ -251,8 +251,8 @@ def main():
     generate_main()
     generate_makefile()
     for i in sys.argv[1:]:
-        generate_cpp(i)
-        generate_hpp(i)
+        generate_cpp(i.capitalize())
+        generate_hpp(i.capitalize())
 
 
 main()

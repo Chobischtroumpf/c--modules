@@ -11,13 +11,7 @@ OBJDIR	= objs/
 
 CXXFLAGS	+= -I $(INCDIR)
 
-SRCS	= 		Bureaucrat.cpp \
-		Form.cpp \
-		ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp \
-		Intern.cpp \
-		OfficeBlock.cpp \
+SRCS	= 		Finder.cpp		\
 		main.cpp
 
 SRC		:= $(notdir $(SRCS)) # 					Files only
