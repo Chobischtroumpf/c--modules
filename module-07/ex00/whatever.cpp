@@ -6,11 +6,23 @@
 /*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 10:02:46 by adorigo           #+#    #+#             */
-/*   Updated: 2020/07/02 10:42:31 by adorigo          ###   ########.fr       */
+/*   Updated: 2020/07/10 13:53:36 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+class Awesome {
+	public:
+	Awesome(int n):_n(n){}
+	bool operator==( Awesome const &rhs ) {return (this->_n == rhs._n);}
+	bool operator!=( Awesome const &rhs ) {return (this->_n != rhs._n);}
+	bool operator>( Awesome const &rhs ) {return (this->_n > rhs._n);}
+	bool operator<( Awesome const &rhs ) {return (this->_n < rhs._n);}
+	bool operator<=( Awesome const &rhs ) {return (this->_n <= rhs._n);}
+	bool operator>=( Awesome const &rhs ) {return (this->_n >= rhs._n);}
+	int _n;
+};
 
 template <typename T>
 void swap(T &a, T &b)
@@ -68,5 +80,12 @@ int main(void)
 	std::cout << "min(e, f) = " << ::min(e, f) << " (" << &::min(e, f) << ")" << std::endl;
 	std::cout << "max(e, f) = " << ::max(e, f) << " (" << &::max(e, f) << ")" << std::endl;
 
+
+	Awesome testa(19);
+	Awesome testb(50);
+
+
+	::swap(testa, testb);
+	std::cout << "testa : " << testa._n << ", testb : " << testb._n;
 	return (0);
 }
