@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClassAnnuaire.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 16:49:58 by adorigo           #+#    #+#             */
-/*   Updated: 2020/04/27 10:19:55 by adorigo          ###   ########.fr       */
+/*   Updated: 2021/01/19 13:50:16 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Annuaire::~Annuaire()
 void Annuaire::show_startup(void)
 {
 	std::cout << "# ANNUAIRE" << std::endl;
-	std::cout << "# Enter your command [HELP, ADD, SEARCH, EXIT]:" << std::endl;
+	std::cout << "# Enter your command [ADD, SEARCH, EXIT]:" << std::endl;
 }
 
 void Annuaire::add_contact(void)

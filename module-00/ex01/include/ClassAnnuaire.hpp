@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClassAnnuaire.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 19:06:40 by alessandro        #+#    #+#             */
-/*   Updated: 2020/04/27 10:23:08 by adorigo          ###   ########.fr       */
+/*   Updated: 2021/01/19 13:42:33 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <limits>
 # include "ClassContact.hpp"
 
 class Annuaire

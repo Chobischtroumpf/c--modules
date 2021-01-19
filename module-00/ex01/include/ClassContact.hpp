@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   ClassContact.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 20:23:39 by alessandro        #+#    #+#             */
-/*   Updated: 2020/03/23 10:09:45 by adorigo          ###   ########.fr       */
+/*   Updated: 2021/01/19 13:45:47 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ private:
 	};
 public:
 	Contact();
-	// virtual ~Contact();
+	virtual ~Contact();
 
 	bool	set_informations(int index);
 	void	display_header(void);

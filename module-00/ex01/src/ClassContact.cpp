@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClassContact.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adorigo <adorigo@student.s19.be>           +#+  +:+       +#+        */
+/*   By: adorigo <adorigo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:03:30 by alessandro        #+#    #+#             */
-/*   Updated: 2020/04/27 10:20:38 by adorigo          ###   ########.fr       */
+/*   Updated: 2021/01/19 13:45:26 by adorigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ Contact::Contact()
 		this->informations[i] = std::string();
 }
 
-// Contact::~Contact()
-// {
-// }
+Contact::~Contact()
+{
+}
 
 bool Contact::set_informations(int index)
 {
